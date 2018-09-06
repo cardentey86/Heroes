@@ -28,10 +28,14 @@ export class HeroDetailComponent implements OnInit {
             .subscribe(hero => this.hero = hero);
     }
 
-
     // Retorna a la vista de donde llegó
     goBack(): void {
         this.location.back();
+    }
+
+    save(): void {
+        this.heroService.updateHero(this.hero)
+            .subscribe(() => this.goBack());
     }
 
 }

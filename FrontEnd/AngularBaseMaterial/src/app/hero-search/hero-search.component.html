@@ -1,0 +1,39 @@
+<div id="search-component">
+
+  <!--#searchBox es la creacion de una referencia-->
+  <!--a ese input. puedes acceder a ese campo desde el template-->
+  <!--o desde el ts.-->
+  <!--En el caso del temprate seria por ejemplo-->
+  <!--searchBox.value-->
+  <!--En el caso del ts tendrias q usar algo q se llama ViewChild-->
+  <!--es un decorador-->
+  <!--seria-->
+  <!--@ViewChild() searchBox;-->
+  <!--y con esa variable pedes acceder a los valores del input-->
+  <!--un poco diferente-->
+  <!--seria algo como-->
+  <!--this.searchBox.nativeElement.value-->
+  <!--habiando declarado al variable con el viewchild anteriormente-->
+  <mat-form-field>
+    <input matInput #searchBox placeholder="Buscar" id="search-box" (keyup)="search(searchBox.value)" />
+
+    <button mat-button *ngIf="!searchBox.value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>search</mat-icon>
+    </button>
+
+    <button mat-button *ngIf="searchBox.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchBox.value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </mat-form-field>
+
+
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>

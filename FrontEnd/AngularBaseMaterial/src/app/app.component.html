@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
-<nav>
- <a class="btn btn-info" routerLink="/dashboard">Dashboard</a>
- <a class="btn btn-amber" routerLink="/heroes">Heroes</a>
+<nav fxLayout="row" fxLayoutGap="10px">
+ <a mat-raised-button color="primary" routerLink="/dashboard">Dashboard</a>
+ <a mat-raised-button color="warn" routerLink="/heroes">Heroes</a>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
